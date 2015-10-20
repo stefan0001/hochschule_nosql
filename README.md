@@ -1,4 +1,4 @@
-# NOSQl WS15/16
+# NoSQL WS15/16
 ---
 **Groupname: YeSQL**
 
