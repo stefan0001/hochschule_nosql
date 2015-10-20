@@ -1,6 +1,7 @@
 # NOSQl WS15/16
+---
+**Groupname: YeSQL**
 
-Groupname: YeSQL
-Groupmember:
+**Groupmember:**
 - Stefan Beigel
 - Kevin Erdinger
