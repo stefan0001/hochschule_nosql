@@ -1,0 +1,17 @@
+{
+  "name": "UebungNodeJS",
+  "version": "1.0.0",
+  "keywords": [
+    "util",
+    "functional",
+    "server",
+    "client",
+    "browser"
+  ],
+  "author": "stefan",
+  "contributors": [],
+  "dependencies": {
+    "express": "^4.13.3",
+    "redis": "^2.3.0"
+  }
+}
