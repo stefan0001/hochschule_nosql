@@ -1,0 +1,22 @@
+{
+  "name": "uebung02-mongo",
+  "version": "1.0.0",
+  "keywords": [
+    "util",
+    "functional",
+    "server",
+    "client",
+    "browser"
+  ],
+  "author": "stefan",
+  "contributors": [],
+  "dependencies": {
+    "express": "^4.13.3",
+    "mongodb": "^2.0.48",
+    "q": "^1.4.1"
+  },
+    "scripts": {
+        "start": "node read.js"
+    }
+
+}
