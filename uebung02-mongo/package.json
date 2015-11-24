@@ -11,12 +11,12 @@
   "author": "stefan",
   "contributors": [],
   "dependencies": {
+    "body-parser": "^1.14.1",
     "express": "^4.13.3",
     "mongodb": "^2.0.48",
     "q": "^1.4.1"
   },
-    "scripts": {
-        "start": "node read.js"
-    }
-
+  "scripts": {
+    "start": "node read.js"
+  }
 }

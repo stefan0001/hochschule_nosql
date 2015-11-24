@@ -5,7 +5,7 @@ var MongoClient = mongodb.MongoClient;
 var url = 'mongodb://localhost:27017/catsdb';
 // Use connect method to connect to the Server 
 
-MongoClient.connect(url, function (err, db) {
+MongoClient.connect(url, function(err, db){
     console.log("Connected correctly to server");
 
     var cats1 = db.collection('cats').find({gender: "female"}).toArray();
@@ -27,7 +27,7 @@ MongoClient.connect(url, function (err, db) {
         console.log(cats);
         console.log("\n");
     });
-    
+
     cats4.then(function(cats){
         console.log(cats);
         console.log("\n");
