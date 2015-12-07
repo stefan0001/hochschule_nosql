@@ -1,0 +1,25 @@
+@media (min-width: 992px) {
+  body {
+    padding: 50px;
+  }
+  #searchbar {
+    width: 60%;
+    margin-left: 100px;
+  }
+  #searchbar .input-group {
+    width: 100%;
+  }
+  #searchbar .form-control {
+    width: 100%;
+  }
+}
+#content {
+  margin-top: 50px;
+}
+.document-operations {
+  width: 100px;
+}
+table {
+  table-layout: fixed;
+}
+/*# sourceMappingURL=style.css.map */
