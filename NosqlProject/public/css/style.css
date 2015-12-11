@@ -22,4 +22,7 @@
 table {
   table-layout: fixed;
 }
+#paging {
+  text-align: center;
+}
 /*# sourceMappingURL=style.css.map */

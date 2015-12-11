@@ -67,11 +67,37 @@
                         <td>{{document.title}}</td>
                         <td>{{document.filename}}</td>
                         <td>{{document.type}}</td>
-                        <td></td>
+                        <td>
+                            <a target="_blank" href="/documents/{{document.id}}/file">
+                                <span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span>
+                            </a>
+                            <a ng-click="deleteDocument(document.id)">
+                                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                            </a>
+                        </td>
                     </tr>
                 </tbody>
             </table>
         </div>
+
+        <nav id="paging">
+            <ul class="pagination">
+                <li>
+                    <a ng-click="switchPage(paging.currentPage - 1)" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                <li ng-repeat="i in paging.pages track by $index" ng-class="{active: $index == paging.currentPage}">
+                    <a ng-click="switchPage($index)">{{$index + 1}}</a>
+                </li>
+                <li>
+                    <a ng-click="switchPage(paging.currentPage + 1)" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
 
         <!-- Modal -->
         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
