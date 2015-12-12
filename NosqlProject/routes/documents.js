@@ -9,7 +9,7 @@ router.get(['', '/search'], function (req, res) {
     var page = req.query.page ? parseInt(req.query.page) : 0;
     var search = req.query.search;
     var pageSize = 10;
-    
+
     var criteria = {
         index: 'test',
         type: 'test',
@@ -23,7 +23,7 @@ router.get(['', '/search'], function (req, res) {
         criteria.body = {
             query: {
                 term: {
-                    _all: search.toLowerCase()
+                    "file.content": search.toLowerCase()
                 }
             }
         };
@@ -64,7 +64,7 @@ router.get('/:id', function (req, res) {
         type: 'test',
         id: id
     }).then(function (result) {
-        if(result){
+        if (result) {
             res.send({
                 id: result._id,
                 title: result._source.title,
@@ -88,12 +88,12 @@ router.get('/:id/file', function (req, res) {
     }).then(function (result) {
         console.log("result");
         console.log(result);
-        if(result){
+        if (result) {
             var source = new Buffer(result._source.file._content, 'base64');
             res.writeHead(200, {
-               'Content-Type': result._source.file._content_type,
-               'Content-Length': source.length
-             });
+                'Content-Type': result._source.file._content_type,
+                'Content-Length': source.length
+            });
             res.end(source);
         } else {
             res.sendStatus(404);
