@@ -9,7 +9,6 @@ function searchController($scope, $http) {
     $scope.searchtext = "";
     $scope.search = search;
     $scope.switchPage = switchPage;
-    $scope.deleteDocument = deleteDocument;
 
     $scope.paging = {
         currentPage: 0,
@@ -48,16 +47,14 @@ function searchController($scope, $http) {
             $scope.paging.pages = new Array(response.data.pageCount);
         });
     }
-    
-    function deleteDocument(id) {
-        console.log('delete');
-        $http({
-            method: 'DELETE',
-            url: '/documents/' + id
-        }).then(function(){
-            performSearch();
-        });
-    }
+
+    $scope.$on('searchOutdated', function (event, args) {
+        if (args.resetPage) {
+            $scope.paging.currentPage = 0;
+        }
+        performSearch();
+    });
+
     //init
     performSearch();
 }
@@ -65,7 +62,7 @@ function searchController($scope, $http) {
 function documentController($scope, $http) {
     $scope.newDocument = {};
     $scope.createDocument = createDocument;
-    $scope.file = null;
+    $scope.deleteDocument = deleteDocument;
 
     function createDocument() {
         console.log(JSON.stringify($scope.newDocument));
@@ -79,6 +76,21 @@ function documentController($scope, $http) {
                 type: $scope.newDocument.file.filetype,
                 file: $scope.newDocument.file.base64
             }
+        }).then(function () {
+            $scope.$emit('searchOutdated', {
+                resestPage: true
+            });
         });
     }
+
+    function deleteDocument(id) {
+        console.log('delete');
+        $http({
+            method: 'DELETE',
+            url: '/documents/' + id
+        }).then(function () {
+            $scope.$emit('searchOutdated', {});
+        });
+    }
+
 }

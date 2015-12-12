@@ -62,7 +62,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr ng-repeat="document in documents">
+                    <tr ng-repeat="document in documents" ng-controller="DocumentController">
                         <td>{{document.id}}</td>
                         <td>{{document.title}}</td>
                         <td>{{document.filename}}</td>
