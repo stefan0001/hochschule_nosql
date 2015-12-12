@@ -10,9 +10,9 @@
 ### Requirments
 * Nodejs
 * NPM
-..* Bower
-..* Less
+  * Bower
+  * Less
 * Elasticsearch
-..* AttachmentPlugin for ElasticSearch (https://github.com/elastic/elasticsearch-mapper-attachments)
+  * AttachmentPlugin for ElasticSearch (https://github.com/elastic/elasticsearch-mapper-attachments)
 
 ### Setup Elastic Search Index
