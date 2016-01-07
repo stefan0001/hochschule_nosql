@@ -11,8 +11,8 @@ router.get(['', '/search'], function (req, res) {
     var pageSize = 10;
 
     var criteria = {
-        index: 'test',
-        type: 'test',
+        index: 'nosql',
+        type: 'document',
         size: pageSize,
         fields: ['title', 'filename', 'type'],
         from: page * pageSize,
@@ -24,6 +24,20 @@ router.get(['', '/search'], function (req, res) {
             query: {
                 term: {
                     "file.content": search.toLowerCase()
+                }
+            }
+        };
+
+        criteria.body = {
+            query: {
+                bool: {
+                    must: [
+                        {
+                            match: {
+                                "file.content": search.toLowerCase()
+                            }
+                        }
+                    ]
                 }
             }
         };
@@ -60,8 +74,8 @@ router.get('/:id', function (req, res) {
     var id = req.params.id;
 
     db.get({
-        index: 'test',
-        type: 'test',
+        index: 'nosql',
+        type: 'document',
         id: id
     }).then(function (result) {
         if (result) {
@@ -82,8 +96,8 @@ router.get('/:id/file', function (req, res) {
     var id = req.params.id;
     console.log("get file");
     db.get({
-        index: 'test',
-        type: 'test',
+        index: 'nosql',
+        type: 'document',
         id: id
     }).then(function (result) {
         console.log("result");
@@ -106,8 +120,8 @@ router.post('/', function (req, res) {
     var document = req.body;
 
     db.create({
-        index: 'test',
-        type: 'test',
+        index: 'nosql',
+        type: 'document',
         refresh: true,
         body: {
             title: document.title,
@@ -130,8 +144,8 @@ router.delete('/:id', function (req, res) {
     var id = req.params.id;
 
     db.delete({
-        index: 'test',
-        type: 'test',
+        index: 'nosql',
+        type: 'document',
         id: id,
         refresh: true
     }).then(function (result) {
